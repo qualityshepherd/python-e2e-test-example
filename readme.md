@@ -3,10 +3,10 @@ Example Selenium/Webdriver e2e tests (some quite silly) that aim to illustrate s
 
 ## Install
 1. install pip: `sudo easy_install pip`
-1. install/update selenium: `pip install - U selenium`
+1. install/update selenium: `pip install -U selenium` (3.14.1)
 1. download drivers and copy to /usr/local/bin
-    - https://github.com/mozilla/geckodriver/releases/tag/v0.18.0
-    - https://sites.google.com/a/chromium.org/chromedriver/downloads
+    - https://github.com/mozilla/geckodriver/releases (v0.23.0)
+    - https://sites.google.com/a/chromium.org/chromedriver/downloads (2.43)
 
 ## Run Tests
 Python has a _very stupid_ way of finding modules that requires you to pass your module path...

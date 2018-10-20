@@ -1,11 +1,11 @@
+import time
+from selenium.common.exceptions import NoSuchElementException
 
 class BasePage(object) :
     base_url = 'https://qualityshepherd.com/'
 
     def __init__(self, driver):
         self.driver = driver
-        # default wait for an element to be available in seconds
-        driver.implicitly_wait(4)
 
     def goto(self, url):
         url = self.base_url + url
@@ -22,3 +22,11 @@ class BasePage(object) :
     # should never need this... but...
     def sleep(self, seconds = 1):
         time.sleep(seconds)
+
+    # test if an element exists
+    def element_exits(self, element_css):
+        try:
+            self.element(element_css)
+        except NoSuchElementException:
+            return False
+        return True
