@@ -4,7 +4,8 @@ from qs_page import QsPage
 
 class QualityShepherd(unittest.TestCase):
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(self):
         self.driver = webdriver.Chrome()
         self.driver.implicitly_wait(5)
         self.qsPage = QsPage(self.driver)
@@ -19,8 +20,14 @@ class QualityShepherd(unittest.TestCase):
 
         assert self.qsPage.element_exits(self.qsPage.results) is True
 
-    def tearDown(self):
-        self.driver.quit()
+    def test_should_return_no_search_results_msg(self):
+        self.qsPage.search_for('xxxxxxxx')
+
+        assert self.qsPage.get_search_results_text() == self.qsPage.no_results_msg
+
+    @classmethod
+    def tearDownClass(self):
+        self.driver.close()
 
 if __name__ == '__main__':
     unittest.main()
