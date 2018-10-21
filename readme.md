@@ -15,5 +15,7 @@ Python has a _very stupid_ way of finding modules that requires you to pass your
 ## Optional
 I found [Pytest](https:pytest.org) to be a nicer test runner...
 1. install Pytest: `pip install -U pytest`
+
 and given you've solved the PYTHONPATH wackiness...
+
 1. run 'em: `pytest`
