@@ -1,5 +1,9 @@
-# Python Example
+# Python E2E Test Example
 Example Selenium/Webdriver e2e tests (some quite silly) that aim to illustrate solutions for common issues when writing e2e tests
+
+## These Tests:
+* run python selenium tests locally
+* make use of a page object pattern
 
 ## Install
 1. install pip: `sudo easy_install pip`
@@ -15,7 +19,5 @@ Python has a _very stupid_ way of finding modules that requires you to pass your
 ## Optional
 I found [Pytest](https:pytest.org) to be a nicer test runner...
 1. install Pytest: `pip install -U pytest`
-
-and given you've solved the PYTHONPATH wackiness...
-
+1. solve the PYTHONPATH wonkiness via an ENV var: `export PYTHONPATH=[your path here]/python-e2e-test-example/pages`
 1. run 'em: `pytest`

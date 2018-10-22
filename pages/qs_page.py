@@ -6,9 +6,10 @@ from search_mod import Search
 class QsPage(BasePage):
     url = '' # same as base_url
     posts = 'div.post'
-    results = '.search-results';
+    results_displayed = '.search';
     results_title = '#content h2'
     no_results_msg = 'No posts found. Please try a different search.'
+    github_link = '#githubLink'
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -21,4 +22,6 @@ class QsPage(BasePage):
 
     # get the text of search results title
     def get_search_results_text(self):
+        # results can take a second to display
+        self.wait_for_element(self.results_displayed)
         return self.element(self.results_title).text

@@ -1,5 +1,5 @@
-import time
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.support.ui import WebDriverWait
 
 '''
 base page class that is inherited by all pages and includes
@@ -7,6 +7,12 @@ things available to all pages
 '''
 class BasePage(object) :
     base_url = 'https://qualityshepherd.com/'
+    timeout = {
+        's': 1,
+        'm': 3,
+        'l': 6,
+        'xl': 12
+    }
 
     def __init__(self, driver):
         self.driver = driver
@@ -16,17 +22,20 @@ class BasePage(object) :
         url = self.base_url + url
         self.driver.get(url)
 
-    # get a single element
+    # wait and get a single element via css selector (eg. #id)
     def element(self, loc_str):
-        return self.driver.find_element_by_css_selector(loc_str)
+        return WebDriverWait(self.driver, self.timeout['l']).until(lambda x: x.find_element_by_css_selector(loc_str))
 
-    # get multiple elements
+    # wait and get multiple elements via css selector (eg. .class)
     def elements(self, loc_str):
-        return self.driver.find_elements_by_css_selector(loc_str)
+        return WebDriverWait(self.driver, self.timeout['l']).until(lambda x: x.find_elements_by_css_selector(loc_str))
 
-    # should never need this... but...
+    def wait_for_element(self, loc_str):
+        return WebDriverWait(self.driver, self.timeout['l']).until(lambda x: x.find_element_by_css_selector(loc_str))
+
+    # sleeps are an abomination... but...
     def sleep(self, seconds = 1):
-        time.sleep(seconds)
+        WebDriverWait(self.driver, seconds)
 
     # test if an element exists
     def element_exits(self, element_css):
@@ -35,3 +44,8 @@ class BasePage(object) :
         except NoSuchElementException:
             return False
         return True
+
+    def switch_to_window(self, win_index):
+        WebDriverWait(self.driver, self.timeout['xl']).until(lambda x: len(x.window_handles) > win_index)
+        print('switching to window:', win_index)
+        self.driver.switch_to.window(self.driver.window_handles[win_index])
