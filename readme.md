@@ -13,7 +13,7 @@ Example Selenium/Webdriver e2e tests (some quite silly) that aim to illustrate s
     - https://sites.google.com/a/chromium.org/chromedriver/downloads (2.43)
 
 ## Run Tests
-Python has a _very stupid_ way of finding modules that requires you to pass your module path...
+Python has a ~~stupid~~ _interesting_ way of finding modules that requires you to pass your module path...
 1. run 'em: `PYTHONPATH=[PATH_TO_PROJECT]/python-e2e-test-example/pages python tests/qs_test.py`
 
 ## Optional
