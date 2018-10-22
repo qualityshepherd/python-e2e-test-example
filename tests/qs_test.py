@@ -4,7 +4,7 @@ from qs_page import QsPage
 
 class QualityShepherd(unittest.TestCase):
 
-    @classmethod
+    @classmethod # classmethods get called once per class as opposed to just using setUp
     def setUpClass(self):
         self.driver = webdriver.Chrome()
         self.driver.implicitly_wait(5)
@@ -16,14 +16,14 @@ class QualityShepherd(unittest.TestCase):
         assert self.qsPage.get_num_posts() is 5
 
     def test_should_return_search_results(self):
-        self.qsPage.search_for('e2e')
+        self.qsPage.search.for_text('e2e')
 
         assert self.qsPage.element_exits(self.qsPage.results) is True
 
     def test_should_return_no_search_results_msg(self):
-        self.qsPage.search_for('xxxxxxxx')
+        self.qsPage.search.for_text('xxxxxxxx')
 
-        assert self.qsPage.get_search_results_text() == self.qsPage.no_results_msg
+        assert 'No posts found' in self.qsPage.get_search_results_text()
 
     @classmethod
     def tearDownClass(self):

@@ -1,12 +1,17 @@
 import time
 from selenium.common.exceptions import NoSuchElementException
 
+'''
+base page class that is inherited by all pages and includes
+things available to all pages
+'''
 class BasePage(object) :
     base_url = 'https://qualityshepherd.com/'
 
     def __init__(self, driver):
         self.driver = driver
 
+    # wrapper for get()
     def goto(self, url):
         url = self.base_url + url
         self.driver.get(url)
