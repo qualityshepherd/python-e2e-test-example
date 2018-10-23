@@ -26,15 +26,15 @@ class BasePage(object) :
         self.driver.get(url)
 
     # wait and get a single element via css selector (eg. #id)
-    def element(self, loc_str):
-        return WebDriverWait(self.driver, self.timeout['l']).until(lambda x: x.find_element_by_css_selector(loc_str))
+    def element(self, locator):
+        return WebDriverWait(self.driver, self.timeout['l']).until(lambda x: x.find_element(*locator))
 
     # wait and get multiple elements via css selector (eg. .class)
-    def elements(self, loc_str):
-        return WebDriverWait(self.driver, self.timeout['l']).until(lambda x: x.find_elements_by_css_selector(loc_str))
+    def elements(self, locator):
+        return WebDriverWait(self.driver, self.timeout['l']).until(lambda x: x.find_elements(*locator))
 
-    def wait_for_element(self, loc_str):
-        return WebDriverWait(self.driver, self.timeout['l']).until(lambda x: x.find_element_by_css_selector(loc_str))
+    def wait_for_element(self, locator):
+        return WebDriverWait(self.driver, self.timeout['l']).until(lambda x: x.find_element(*locator))
 
     # sleeps are an abomination... but...
     def sleep(self, seconds=1):

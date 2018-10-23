@@ -36,7 +36,6 @@ def test_should_open_link_in_new_window(driver):
     new_win_index = 1
     githubPage = GithubPage(driver)
     githubPage.switch_to_window(new_win_index)
-    #githubPage.loaded()
 
     assert githubPage.element_exits(githubPage.username) is True
 

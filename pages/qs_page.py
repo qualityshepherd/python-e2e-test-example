@@ -1,16 +1,16 @@
 from base_page import BasePage
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from search_mod import Search
 
 
 class QsPage(BasePage):
-    url = '' # same as base_url
-    posts = 'div.post'
-    results_displayed = '.search';
-    results_title = '#content h2'
+    url = '' # same as base_url)
+    posts = (By.CSS_SELECTOR, 'div.post')
+    results_displayed = (By.CSS_SELECTOR, '.search')
+    results_title = (By.CSS_SELECTOR, '#content h2')
+    github_link = (By.CSS_SELECTOR, '#githubLink')
     no_results_msg = 'No posts found. Please try a different search.'
-    github_link = '#githubLink'
 
     def __init__(self, driver):
         super().__init__(driver)
