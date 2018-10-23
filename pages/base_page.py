@@ -1,5 +1,8 @@
+import time
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 
 '''
 base page class that is inherited by all pages and includes
@@ -34,8 +37,8 @@ class BasePage(object) :
         return WebDriverWait(self.driver, self.timeout['l']).until(lambda x: x.find_element_by_css_selector(loc_str))
 
     # sleeps are an abomination... but...
-    def sleep(self, seconds = 1):
-        WebDriverWait(self.driver, seconds)
+    def sleep(self, seconds=1):
+        time.sleep(seconds)
 
     # test if an element exists
     def element_exits(self, element_css):
@@ -46,6 +49,7 @@ class BasePage(object) :
         return True
 
     def switch_to_window(self, win_index):
-        WebDriverWait(self.driver, self.timeout['xl']).until(lambda x: len(x.window_handles) > win_index)
+        # this keeps chrome from hanging when switching windows... sadness
+        self.sleep(1)
         print('switching to window:', win_index)
         self.driver.switch_to.window(self.driver.window_handles[win_index])

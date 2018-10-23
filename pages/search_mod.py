@@ -1,6 +1,7 @@
 from base_page import BasePage
 from selenium.webdriver.common.keys import Keys
 
+
 '''
 Search is a shared object between multiple pages
 '''

@@ -3,6 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from search_mod import Search
 
+
 class QsPage(BasePage):
     url = '' # same as base_url
     posts = 'div.post'
