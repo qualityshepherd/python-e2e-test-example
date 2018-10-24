@@ -42,3 +42,11 @@ def test_should_open_link_in_new_window(driver):
     # cleanup...
     driver.close()
     qsPage.switch_to_window(orig_win_index)
+
+def test_sidebar_has_a_set_width(driver):
+    qsPage = QsPage(driver)
+    qsPage.goto(qsPage.url)
+
+    assert qsPage.element(qsPage.sidebar).size['width'] == 280
+
+

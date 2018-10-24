@@ -9,8 +9,10 @@ class QsPage(BasePage):
     posts = (By.CSS_SELECTOR, 'div.post')
     results_displayed = (By.CSS_SELECTOR, '.search')
     results_title = (By.CSS_SELECTOR, '#content h2')
-    github_link = (By.CSS_SELECTOR, '#githubLink')
     no_results_msg = 'No posts found. Please try a different search.'
+    # sidebar
+    sidebar = (By.CSS_SELECTOR, '#sidebar')
+    github_link = (By.CSS_SELECTOR, '#githubLink')
 
     def __init__(self, driver):
         super().__init__(driver)

@@ -1,8 +1,8 @@
 # Python E2E Test Example
 Example Selenium/Webdriver e2e tests (some quite silly) that aim to illustrate solutions for common issues when writing e2e tests
 
-## These Tests:
-* run python selenium tests locally
+### These Tests:
+* run python selenium e2e tests against an existing site
 * make use of a page object pattern
 * run on Firefox or Chrome
 
