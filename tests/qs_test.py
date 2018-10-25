@@ -1,5 +1,3 @@
-import pytest
-from selenium import webdriver
 from qs_page import QsPage
 from github_page import GithubPage
 
