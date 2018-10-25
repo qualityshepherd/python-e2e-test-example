@@ -15,7 +15,7 @@ class QsPage(BasePage):
     github_link = (By.CSS_SELECTOR, '#githubLink')
 
     def __init__(self, driver):
-        super().__init__(driver)
+        super(QsPage, self).__init__(driver)
         # include shared modules
         self.search = Search(driver)
 

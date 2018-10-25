@@ -8,7 +8,7 @@ class GithubPage(BasePage):
     username = (By.CSS_SELECTOR, '.vcard-fullname')
 
     def __init__(self, driver):
-        super().__init__(driver)
+        super(GithubPage, self).__init__(driver)
 
     # defines when the page is loaded
     def loaded(self):
