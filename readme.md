@@ -21,4 +21,4 @@ Example Selenium/Webdriver e2e tests (some quite silly) that aim to illustrate s
 ## Run Tests
 1. in Chrome (default): `pytest`
 1. in Firefox `pytest --driver firefox`
-1. in parallel `pytest --workers 2
+1. in parallel `pytest --workers 2`
