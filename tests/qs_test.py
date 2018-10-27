@@ -2,14 +2,17 @@ import pytest
 from qs_page import QsPage
 from github_page import GithubPage
 
-
-# autouse fixture sets up page objects and opens site
-@pytest.fixture(autouse=True)
+'''
+autouse fixture sets up page objects and opens site
+and module scope ensures it runs only once
+'''
+@pytest.fixture(scope="module", autouse=True)
 def setup(driver):
     # makes pages available to all tests
     global qsPage, githubPage
     qsPage = QsPage(driver)
     githubPage = GithubPage(driver)
+    # goto our test site
     qsPage.goto(qsPage.url)
 
 # tests MUST start with `test_` to run with pytest
