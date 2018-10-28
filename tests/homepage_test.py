@@ -19,16 +19,6 @@ def setup(driver):
 def test_should_display_5_posts(driver):
     assert qsPage.get_num_posts() is 5
 
-def test_should_return_search_results(driver):
-    qsPage.search.for_text('e2e')
-
-    assert qsPage.element_exits(qsPage.results_displayed) is True
-
-def test_should_return_no_search_results_msg(driver):
-    qsPage.search.for_text('xxxxxxxx')
-
-    assert 'No posts found' in qsPage.get_search_results_text()
-
 def test_should_open_link_in_new_window(driver):
     orig_win_index = 0
     qsPage.element(qsPage.github_link).click()
