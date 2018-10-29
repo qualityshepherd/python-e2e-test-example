@@ -20,36 +20,42 @@ class BasePage(object) :
     def __init__(self, driver):
         self.driver = driver
 
-    # wrapper for get()
     def goto(self, url):
+        ''' wrapper for get() '''
         url = self.base_url + url
         self.driver.get(url)
 
-    # wait and get a single element via css selector (eg. #id)
     def element(self, locator):
+        ''' wait and get a single element via css selector (eg. #id) '''
         return WebDriverWait(self.driver, self.timeout['l']).until(lambda x: x.find_element(*locator))
 
-    # wait and get multiple elements via css selector (eg. .class)
     def elements(self, locator):
+        ''' wait and get multiple elements via css selector (eg. .class) '''
         return WebDriverWait(self.driver, self.timeout['l']).until(lambda x: x.find_elements(*locator))
 
     def wait_for_element(self, locator):
         return WebDriverWait(self.driver, self.timeout['l']).until(lambda x: x.find_element(*locator))
 
-    # sleeps are an abomination... but...
     def sleep(self, seconds=1):
+        ''' sleeps are an abomination... but... '''
         time.sleep(seconds)
 
-    # test if an element exists
     def element_exits(self, element_css):
+        ''' test if an element exists '''
         try:
             self.element(element_css)
         except NoSuchElementException:
             return False
         return True
 
-    def switch_to_window(self, win_index):
+    def switch_to_new_window(self):
         # this keeps chrome from hanging when switching windows... sadness
         self.sleep(1)
-        print('switching to window:', win_index)
-        self.driver.switch_to.window(self.driver.window_handles[win_index])
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[-1])
+
+    def switch_to_first_window(self):
+        windows = self.driver.window_handles
+        # close current window
+        self.driver.close()
+        self.driver.switch_to.window(windows[0])
