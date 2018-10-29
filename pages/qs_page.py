@@ -19,12 +19,12 @@ class QsPage(BasePage):
         # include shared modules
         self.search = Search(driver)
 
-    # get the number of posts
     def get_num_posts(self):
+        ''' get the number of posts '''
         return len(self.elements(self.posts))
 
-    # get the text of search results title
     def get_search_results_text(self):
+        ''' get the text of search results title '''
         # results can take a second to display
         self.wait_for_element(self.results_displayed)
         return self.element(self.results_title).text

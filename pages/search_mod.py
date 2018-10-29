@@ -9,8 +9,8 @@ Search is a shared object between multiple pages
 class Search(BasePage):
     searchbox = (By.CSS_SELECTOR, 'input#s')
 
-    # search for the given text
     def for_text(self, text):
+	    ''' search for the given text '''
         searchbox = self.element(self.searchbox)
         searchbox.clear()
         searchbox.send_keys(text)

@@ -9,6 +9,6 @@ class GithubPage(BasePage):
     def __init__(self, driver):
         super(GithubPage, self).__init__(driver)
 
-    # defines when the page is loaded
     def loaded(self):
+	    ''' defines when the page is loaded '''
         self.wait_for_element(self.username)
