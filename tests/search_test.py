@@ -7,7 +7,7 @@ function scope (default) ensures it runs for each test
 '''
 @pytest.fixture(autouse=True)
 def setup(driver):
-    # makes pages available to all tests
+    ''' makes pages available to all tests '''
     global qsPage
     qsPage = QsPage(driver)
     qsPage.goto(qsPage.url)
