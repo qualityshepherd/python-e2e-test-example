@@ -30,3 +30,9 @@ def test_should_open_link_in_new_window(driver):
 
 def test_sidebar_has_a_set_width(driver):
     assert qsPage.element(qsPage.sidebar).size['width'] == 280
+
+def test_find_post_by_paging(driver):
+    post_title = 'When To Automate'
+    qsPage.find_post_by_paging(post_title)
+
+    assert qsPage.find_post_by_paging(post_title) is True

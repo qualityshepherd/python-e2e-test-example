@@ -11,4 +11,4 @@ class GithubPage(BasePage):
 
 	def loaded(self):
 		''' defines when the page is loaded '''
-		self.wait_for_element(self.username) 
+		self.wait_for_element(self.username)
