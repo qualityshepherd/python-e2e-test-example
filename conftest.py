@@ -23,5 +23,6 @@ def driver(request):
     else:
         raise ValueError('invalid driver name: ' + driver)
     driver.set_window_size(1200, 800)
+    driver.base_url = request.config.getoption('--url') or 'https://qualityshepherd.com/'
     yield driver
     driver.quit()

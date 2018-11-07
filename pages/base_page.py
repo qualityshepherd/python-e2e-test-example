@@ -8,8 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 base page class that is inherited by all pages and includes
 things available to all pages
 '''
-class BasePage(object) :
-    base_url = 'https://qualityshepherd.com/'
+class BasePage() :
     timeout = {
         's': 1,
         'm': 3,
@@ -19,11 +18,16 @@ class BasePage(object) :
 
     def __init__(self, driver):
         self.driver = driver
+        self.base_url = driver.base_url
 
     def goto(self, url):
         ''' wrapper for get() '''
         url = self.base_url + url
         self.driver.get(url)
+        return url
+
+    def get_base_url(self):
+        return self.base_url
 
     def element(self, locator):
         ''' wait and get a single element via css selector (eg. #id) '''

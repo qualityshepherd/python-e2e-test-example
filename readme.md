@@ -11,12 +11,10 @@ Example Selenium/Webdriver e2e tests (some quite silly) that aim to illustrate s
 
 ## Install
 1. install pip: `sudo easy_install pip`
-1. install [Pytest](https:pytest.org): `pip install -U pytest`
-1. install/update selenium: `pip install -U selenium` (3.14.1)
+1. install required packages: `pip3 install -r requirements.txt`
 1. download drivers and copy to your path (eg. `/usr/local/bin`)
     - https://github.com/mozilla/geckodriver/releases (v0.23.0)
     - https://sites.google.com/a/chromium.org/chromedriver/downloads (2.43)
-1. instaly pytest-parallel `pip3 install pytest-parallel` (assuming you're running python3.6+)
 
 ## Run Tests
 1. in Chrome (default): `pytest`
