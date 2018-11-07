@@ -4,10 +4,12 @@
 Example Selenium/Webdriver e2e tests (some quite silly) that aim to illustrate solutions for common issues when writing e2e tests
 
 ### These Tests:
-* run python selenium e2e tests against an existing site
+* run python selenium e2e tests against an existing website
 * make use of a page object pattern
+* use [pytest](http://pytest.org/) for most of the heavy lifting
 * run on Firefox or Chrome
 * run tests in parallel (via [pytest-parallel](https://pypi.org/project/pytest-parallel/) (requires python3.6+)
+* run api tests using [requests](http://docs.python-requests.org/en/master/)
 
 ## Install
 1. install pip: `sudo easy_install pip`
