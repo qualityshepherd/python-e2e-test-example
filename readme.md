@@ -10,6 +10,7 @@ Example Selenium/Webdriver e2e tests (some quite silly) that aim to illustrate s
 * run on Firefox or Chrome
 * run tests in parallel (via [pytest-parallel](https://pypi.org/project/pytest-parallel/) (requires python3.6+)
 * run api tests using [requests](http://docs.python-requests.org/en/master/)
+* run on merge on [CI](https://app.codeship.com/projects/312669)
 
 ## Install
 1. install pip: `sudo easy_install pip`
