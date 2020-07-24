@@ -15,10 +15,9 @@ Example Selenium/Webdriver e2e tests (some quite silly) that aim to illustrate s
 ## Requirements
 So... while python is a lovely language, it has a silly need for keeping python2.7 around. So silly. Down that road lies madness, so we are _only_ talking about `python3`. I'm using [Homebrew (aka `brew`)](https://brew.sh/) to install things but you do you... install however you like.
 1. [python3](https://www.python.org/downloads/) `brew install python3`
-1. [pipenv](https://pypi.org/project/pipenv/) - `brew install pipenv`
 
 ## Install
-1. install requirements: `pipenv install`
+1. install requirements: `pip install -r requirements`
 1. if you want to run on firefox, [download geckodriver](https://github.com/mozilla/geckodriver/releases) and move to a folder on your path (eg. `/usr/local/bin`)
 
 ## Run Tests
