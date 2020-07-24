@@ -1,0 +1,5 @@
+pytest
+selenium
+pytest-parallel
+requests
+chromedriver
