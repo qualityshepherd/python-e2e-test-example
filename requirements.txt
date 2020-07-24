@@ -1,4 +1,0 @@
-pytest~=3.10.0
-selenium~=3.14.1
-pytest-parallel
-requests~=2.20.0

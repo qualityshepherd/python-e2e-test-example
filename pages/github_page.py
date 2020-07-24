@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 
 class GithubPage(BasePage):
-	url = (By.CSS_SELECTOR, 'https://github.com/qualityshepherd')
+	url = 'https://github.com/qualityshepherd'
 	username = (By.CSS_SELECTOR, '.vcard-fullname')
 
 	def __init__(self, driver):

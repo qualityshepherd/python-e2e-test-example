@@ -1,23 +1,23 @@
 import pytest
-from qs_page import QsPage
+from search_page import SearchPage
 
 '''
-autouse fixture sets up page objects and opens site and 
+autouse fixture sets up page objects and opens site and
 function scope (default) ensures it runs for each test
 '''
-@pytest.fixture(autouse=True)
+@pytest.fixture(scope="module", autouse=True)
 def setup(driver):
-    ''' makes pages available to all tests '''
-    global qsPage
-    qsPage = QsPage(driver)
-    qsPage.goto(qsPage.url)
+  ''' makes pages available to all tests '''
+  global SearchPage
+  SearchPage = SearchPage(driver)
+  SearchPage.goto(SearchPage.url)
 
 def test_should_return_search_results(driver):
-    qsPage.search.for_text('e2e')
+  SearchPage.search_for('python')
 
-    assert qsPage.element_exits(qsPage.results_displayed) is True
+  assert SearchPage.element_exits(SearchPage.results) is True
 
 def test_should_return_no_search_results_msg(driver):
-    qsPage.search.for_text('xxxxxxxx')
+  SearchPage.search_for('xxxxxxxx')
 
-    assert 'No posts found' in qsPage.get_search_results_text()
+  assert SearchPage.element_exits(SearchPage.no_results_msg) is True
