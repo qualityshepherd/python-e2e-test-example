@@ -17,7 +17,7 @@ So... while python is a lovely language, it has a silly need for keeping python2
 1. [python3](https://www.python.org/downloads/) `brew install python3`
 
 ## Install
-1. install requirements: `pip install -r requirements`
+1. install requirements: `pip install -r requirements --user`
 1. if you want to run on firefox, [download geckodriver](https://github.com/mozilla/geckodriver/releases) and move to a folder on your path (eg. `/usr/local/bin`)
 
 ## Run Tests
