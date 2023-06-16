@@ -1,4 +1,3 @@
-[ ![Codeship Status for qualityshepherd/python-e2e-test-example](https://app.codeship.com/projects/46773060-bb86-0136-d63d-1e1992c1cf6f/status?branch=master)](https://app.codeship.com/projects/312669)
 
 # Python E2E Test Example
 Example Selenium/Webdriver e2e tests (some quite silly) that aim to illustrate solutions for common issues when writing e2e tests
